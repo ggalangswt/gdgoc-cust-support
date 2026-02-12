@@ -1,55 +1,59 @@
-# 🎯 AI Customer Support Intelligence Platform
+# Quick Start Guide
 
-## Quick Reference Guide
-
-### 📋 Project Summary
+## Project Summary
 
 **Purpose**: AI-powered customer support platform that automatically analyzes, classifies, and responds to customer inquiries.
 
-**Stack**:
+**Tech Stack**:
 
-- Backend: FastAPI + Python + SQLite
+- Backend: FastAPI + Python + SQLite/PostgreSQL
 - Frontend: Next.js 16 + TypeScript + Tailwind CSS + Shadcn/UI
-- AI: Mock service (or OpenAI API)
+- AI: Mock service (or optional OpenAI API)
 
 ---
 
-## 🚀 Quick Start (Summary)
+## Quick Start
 
-### 1. Setup (One-time)
-
-```powershell
-# Windows
-.\setup.ps1
-
-# Mac/Linux
-chmod +x setup.sh
-./setup.sh
-```
-
-### 2. Run Backend
+### Backend Setup
 
 ```powershell
 cd cs-backend
+
+# Create virtual environment (first time only)
+python -m venv venv
+
+# Activate virtual environment
 .\venv\Scripts\activate  # Windows
 source venv/bin/activate # Mac/Linux
+
+# Install dependencies (first time only)
+pip install -r requirements.txt
+
+# Run backend server
 python main.py
 ```
 
-**Backend URL**: http://localhost:8000
+**Backend URL:** http://localhost:8000
 
-### 3. Run Frontend (New Terminal)
+### Frontend Setup
 
-```bash
+Open a new terminal:
+
+```powershell
 cd cs-frontend
-pnpm dev  # or npm run dev
+
+# Install dependencies (first time only)
+pnpm install
+
+# Run development server
+pnpm dev
 ```
 
-**Frontend URL**: http://localhost:3000
+**Frontend URL:** http://localhost:3000
 
 ---
 
-## 📊 Features Overview
+## Features Overview
 
 ### Inbox View
 
@@ -67,14 +71,14 @@ pnpm dev  # or npm run dev
 
 ### Dashboard View
 
-- **Metrics**: Total, New, In Progress, Resolved
-- **Sentiment Chart**: Pie chart of customer sentiment distribution
-- **Category Chart**: Bar chart of issue categories
-- **Key Insights**: Actionable recommendations
+- **Metrics:** Total, New, In Progress, Resolved
+- **Sentiment Chart:** Pie chart of customer sentiment distribution
+- **Category Chart:** Bar chart of issue categories
+- **Key Insights:** Actionable recommendations
 
 ---
 
-## 🤖 AI Features
+## AI Features
 
 | Feature            | Description                 | Example                                        |
 | ------------------ | --------------------------- | ---------------------------------------------- |
@@ -85,7 +89,7 @@ pnpm dev  # or npm run dev
 
 ---
 
-## 📁 Project Structure (Simplified)
+## Project Structure
 
 ```
 gdgoc-cust-support/
@@ -110,7 +114,7 @@ gdgoc-cust-support/
 
 ---
 
-## 🔌 Key API Endpoints
+## API Endpoints
 
 | Method  | Endpoint                   | Purpose                  |
 | ------- | -------------------------- | ------------------------ |
@@ -120,22 +124,22 @@ gdgoc-cust-support/
 | `GET`   | `/api/analytics/dashboard` | Get statistics           |
 | `POST`  | `/api/seed-demo-data`      | Load demo data           |
 
-**Full Docs**: http://localhost:8000/docs
+**Full API Docs:** http://localhost:8000/docs
 
 ---
 
-## 🎨 UI Components
+## UI Components
 
 ### Built Components
 
-- ✅ Message List (with filtering)
-- ✅ Message Detail View
-- ✅ AI Analysis Panel
-- ✅ Sentiment Badges
-- ✅ Category Labels
-- ✅ Analytics Dashboard
-- ✅ Charts (Pie, Bar)
-- ✅ Status Management
+- Message List (with filtering)
+- Message Detail View
+- AI Analysis Panel
+- Sentiment Badges
+- Category Labels
+- Analytics Dashboard
+- Charts (Pie, Bar)
+- Status Management
 
 ### UI Libraries Used
 
@@ -146,18 +150,18 @@ gdgoc-cust-support/
 
 ---
 
-## 💡 Usage Flow
+## Usage Flow
 
 1. **Load Demo Data**: Click button in UI
 2. **Browse Messages**: View inbox with AI analysis
 3. **Review Analysis**: See sentiment, category, summary
 4. **Read Suggested Response**: AI-generated draft
 5. **Update Status**: Move to In Progress → Resolved → Closed
-6. **View Dashboard**: Analyze trends and insights
+6. **View Dashboard:** Analyze trends and insights
 
 ---
 
-## 🛠️ Customization Points
+## Customization
 
 ### Backend
 
@@ -169,11 +173,11 @@ gdgoc-cust-support/
 
 - **Styling**: `cs-frontend/app/globals.css`
 - **Components**: `cs-frontend/components/`
-- **API Client**: `cs-frontend/lib/api.ts`
+- **API Client:** `cs-frontend/lib/api.ts`
 
 ---
 
-## 🎯 Demo Scenario
+## Demo Scenarios
 
 ### Loaded Demo Messages:
 
@@ -185,14 +189,14 @@ gdgoc-cust-support/
 
 Each message is automatically:
 
-- ✅ Classified by category
-- ✅ Analyzed for sentiment
-- ✅ Summarized
-- ✅ Given a suggested response
+- Classified by category
+- Analyzed for sentiment
+- Summarized
+- Given a suggested response
 
 ---
 
-## 🐛 Common Issues
+## Troubleshooting
 
 ### Backend not starting?
 
@@ -228,7 +232,7 @@ pnpm install
 
 ---
 
-## 📈 Next Steps / Enhancements
+## Next Steps
 
 - [ ] Add real OpenAI integration
 - [ ] Implement user authentication
@@ -242,18 +246,16 @@ pnpm install
 
 ---
 
-## 📚 Resources
+## Additional Resources
 
-- **Full README**: [README.md](README.md)
-- **API Docs**: http://localhost:8000/docs
-- **FastAPI**: https://fastapi.tiangolo.com/
-- **Next.js**: https://nextjs.org/docs
-- **Shadcn/UI**: https://ui.shadcn.com/
+- **Full Documentation:** [README.md](README.md)
+- **Authentication Guide:** [AUTH_GUIDE.md](AUTH_GUIDE.md)
+- **Deployment Guide:** [DEPLOYMENT.md](DEPLOYMENT.md)
+- **API Docs:** http://localhost:8000/docs
+- **FastAPI Documentation:** https://fastapi.tiangolo.com/
+- **Next.js Documentation:** https://nextjs.org/docs
+- **Shadcn/UI Components:** https://ui.shadcn.com/
 
 ---
 
-**Built for**: GDGOC Customer Support POC  
-**Tech Lead**: Senior Full Stack Engineer + AI Solutions Architect  
-**Date**: February 2026
-
-🎉 **Ready to revolutionize customer support with AI!**
+**Built for GDGOC - February 2026**

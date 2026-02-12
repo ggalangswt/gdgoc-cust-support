@@ -1,18 +1,24 @@
-# 🎉 Authentication & Mock Data Added!
+# Authentication Guide
 
-## What's New
+## Overview
 
-### ✅ User Authentication System
+This guide covers the authentication system implemented in the AI Customer Support Intelligence Platform, including user roles, login process, and security features.
 
-- **Login/Logout** functionality with JWT tokens
-- **Role-based access control**:
-  - **Agents/Admins**: Full access to all messages and dashboard
-  - **Customers**: View their own messages only
-- **Protected routes** - must login to access the platform
+## Features
 
-### ✅ Demo Accounts
+### User Authentication System
 
-Three pre-configured user accounts:
+- **Login/Logout** functionality with JWT (JSON Web Tokens)
+- **Password Security** using bcrypt hashing
+- **Role-based access control** with three user types:
+  - **Agents:** Full access to all messages and dashboard
+  - **Admins:** Full access plus administrative features
+  - **Customers:** View their own messages only (coming soon feature)
+- **Protected routes** - authentication required to access the platform
+
+### Demo Accounts
+
+Three pre-configured user accounts for testing:
 
 | Role         | Email                  | Password      | Access Level                    |
 | ------------ | ---------------------- | ------------- | ------------------------------- |
@@ -20,22 +26,22 @@ Three pre-configured user accounts:
 | **Customer** | `customer@example.com` | `customer123` | Limited access                  |
 | **Admin**    | `admin@example.com`    | `admin123`    | Full access + admin features    |
 
-### ✅ Mock Data (15 Messages)
+### Demo Data (15 Messages)
 
-Diverse customer support scenarios:
+Diverse customer support scenarios covering:
 
-- ❌ Billing issues (negative sentiment)
-- ✨ Feature requests (positive sentiment)
-- 🔐 Account problems (urgent)
-- 🐛 Technical bugs (very negative)
-- 💚 Thank you messages (positive)
-- ⚙️ Performance issues
-- 🔒 Security concerns
-- ...and more!
+- Billing issues (negative sentiment)
+- Feature requests (positive sentiment)
+- Account problems (urgent)
+- Technical bugs (very negative)
+- Thank you messages (positive)
+- Performance issues
+- Security concerns
+- And more
 
 ---
 
-## 🚀 How to Run
+## Running the Application
 
 ### 1. Start Backend (Terminal 1)
 
@@ -57,9 +63,11 @@ python main.py
 
 **Backend ready at:** http://localhost:8000
 
+**API Documentation:** http://localhost:8000/docs
+
 ---
 
-### 2. Start Frontend (Terminal 2 - NEW TERMINAL)
+### Start Frontend (Terminal 2)
 
 ```powershell
 cd cs-frontend
@@ -75,7 +83,7 @@ pnpm dev
 
 ---
 
-## 🎯 Using the Platform
+## Using the Platform
 
 ### Step 1: Login
 
@@ -86,7 +94,7 @@ pnpm dev
 
 ### Step 2: Load Demo Data (Agent/Admin only)
 
-1. After login, click **"Load Demo Data"** button in the header
+1. After login, click the **"Load Demo Data"** button in the header
 2. This creates:
    - 3 user accounts (if they don't exist)
    - 15 customer support messages
@@ -114,7 +122,7 @@ pnpm dev
 
 ---
 
-## 🎨 Features Showcase
+## Features Showcase
 
 ### Login Page
 
@@ -131,16 +139,16 @@ pnpm dev
 
 ### Message Analysis
 
-All 15 mock messages are automatically analyzed:
+All 15 demo messages are automatically analyzed:
 
-- ✅ Categorized (Billing, Technical, Feature, Account, General)
-- ✅ Sentiment detected (Positive, Neutral, Negative, Very Negative)
-- ✅ Summarized for quick reading
-- ✅ Response suggestions provided
+- Categorized (Billing, Technical, Feature, Account, General)
+- Sentiment detected (Positive, Neutral, Negative, Very Negative)
+- Summarized for quick reading
+- Response suggestions provided
 
 ---
 
-## 📊 Mock Data Details
+## Demo Data Details
 
 ### Message Categories Breakdown:
 
@@ -152,14 +160,14 @@ All 15 mock messages are automatically analyzed:
 
 ### Sentiment Distribution:
 
-- **Positive** (3): Thank you, love UI update
-- **Neutral** (5): Feature requests, inquiries
+- **Positive** (3): Thank you messages, positive feedback
+- **Neutral** (5): Feature requests, general inquiries
 - **Negative** (5): Billing issues, technical problems
-- **Very Negative** (2): Data loss, urgent issues
+- **Very Negative** (2): Data loss, urgent critical issues
 
 ---
 
-## 🔐 API Endpoints
+## API Endpoints
 
 New authentication endpoints:
 
@@ -173,7 +181,7 @@ All message endpoints now support authentication headers.
 
 ---
 
-## 🛠️ Technical Implementation
+## Technical Implementation
 
 ### Backend:
 
@@ -193,7 +201,7 @@ All message endpoints now support authentication headers.
 
 ---
 
-## 💡 Key Improvements
+## Key Improvements
 
 1. **Security**: JWT tokens, password hashing, protected routes
 2. **UX**: Easy login with demo accounts, auto-fill buttons
@@ -203,7 +211,7 @@ All message endpoints now support authentication headers.
 
 ---
 
-## 🎓 Demo Scenarios to Try
+## Demo Scenarios
 
 1. **Login as Agent** → Load demo data → Browse all messages
 2. **Check Dashboard** → See analytics and insights
@@ -213,27 +221,70 @@ All message endpoints now support authentication headers.
 
 ---
 
-## 📞 Support
+## Troubleshooting
 
-Having issues?
+### Backend Issues
 
 1. **Backend not starting?**
    - Check virtual environment is activated
-   - Verify dependencies are installed
-   - Port 8000 available?
+   - Verify dependencies are installed with `pip list`
+   - Ensure port 8000 is available
 
-2. **Frontend not connecting?**
-   - Backend running on port 8000?
+2. **Database errors?**
+   - Check `customer_support.db` file exists
+   - Run `python create_demo_users.py` to seed users
+   - Delete database file and restart to recreate
+
+### Frontend Issues
+
+1. **Frontend not connecting?**
+   - Verify backend is running on port 8000
    - Check browser console for errors
-   - Try clearing localStorage
+   - Clear localStorage if experiencing auth issues
 
-3. **Can't login?**
+2. **Can't login?**
    - Use exact credentials from demo accounts table
-   - Check backend terminal for errors
-   - Make sure demo data was seeded (agents only)
+   - Check backend terminal for error messages
+   - Ensure demo users were created (run `create_demo_users.py`)
+
+### Common Solutions
+
+**Clear application state:**
+
+```javascript
+// In browser console
+localStorage.clear();
+location.reload();
+```
+
+**Restart backend:**
+
+```powershell
+# Stop current process (Ctrl+C)
+cd cs-backend
+.\venv\Scripts\activate
+python main.py
+```
+
+**Verify demo users exist:**
+
+```powershell
+cd cs-backend
+python check_users.py
+```
 
 ---
 
-**Ready to explore! 🚀**
+## Next Steps
 
-Login at http://localhost:3000 with any demo account and start managing customer support with AI!
+After getting familiar with the authentication system:
+
+1. Review the [Deployment Guide](DEPLOYMENT.md) for production setup
+2. Check [README.md](README.md) for full feature documentation
+3. Explore [QUICKSTART.md](QUICKSTART.md) for quick reference
+
+---
+
+**Now you're ready to explore the AI Customer Support platform!**
+
+Visit http://localhost:3000 and login with any demo account to start.

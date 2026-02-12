@@ -1,24 +1,24 @@
-# AI Customer Support Intelligence Platform - POC
+# AI Customer Support Intelligence Platform
 
 A modern, AI-powered customer support platform with **user authentication** that automatically analyzes messages to classify issues, detect sentiment, summarize conversations, and suggest responses.
 
-## 🎯 Overview
+## Overview
 
-This POC demonstrates an intelligent customer support system that helps support agents prioritize and respond to customer inquiries more efficiently using AI-powered analysis. Now with full authentication and role-based access control!
+This proof-of-concept demonstrates an intelligent customer support system that helps support agents prioritize and respond to customer inquiries more efficiently using AI-powered analysis. The platform includes full authentication and role-based access control.
 
 ### Key Features
 
-- **🔐 User Authentication**: Secure login with JWT tokens
-- **👥 Role-Based Access**: Customer, Agent, and Admin roles
-- **🤖 Automated Message Classification**: Categorizes issues (Billing, Technical, Feature Request, Account, General)
-- **😊 Sentiment Analysis**: Detects customer sentiment and urgency
-- **📝 AI Summarization**: Generates concise summaries of long messages
-- **💬 Response Generation**: Provides AI-drafted response suggestions
-- **📊 Analytics Dashboard**: Visual insights into support metrics and trends
-- **⚡ Real-time Updates**: Modern, responsive UI with instant feedback
-- **📦 15 Mock Messages**: Diverse, realistic customer support scenarios
+- **User Authentication**: Secure login with JWT tokens and bcrypt password hashing
+- **Role-Based Access Control**: Customer, Agent, and Admin roles with different permissions
+- **Automated Message Classification**: Categorizes issues into Billing, Technical, Feature Request, Account, or General
+- **Sentiment Analysis**: Detects customer sentiment (Positive, Neutral, Negative, Very Negative) with confidence scores
+- **AI Summarization**: Generates concise summaries of customer messages
+- **Response Generation**: Provides AI-drafted response suggestions
+- **Analytics Dashboard**: Visual insights with charts and metrics
+- **Real-time Updates**: Modern, responsive UI with instant feedback
+- **Demo Data**: 15 diverse, realistic customer support scenarios for testing
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 gdgoc-cust-support/
@@ -52,7 +52,7 @@ gdgoc-cust-support/
 └── README.md                    # This file
 ```
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Backend
 
@@ -71,15 +71,16 @@ gdgoc-cust-support/
 - **Lucide React**: Beautiful icon library
 - **Recharts**: Composable charting library
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
 - **Python 3.9+** (for backend)
 - **Node.js 18+** (for frontend)
 - **pnpm** (or npm/yarn)
+- **Git** (for version control)
 
-### Quick Start (Recommended)
+### Quick Start
 
 #### 1. Start Backend (Terminal 1)
 
@@ -102,8 +103,9 @@ pip install fastapi uvicorn sqlalchemy pydantic python-dotenv python-jose passli
 python main.py
 ```
 
-✅ **Backend will run on http://localhost:8000**
-📚 **API Docs at http://localhost:8000/docs**
+**Backend will run on:** http://localhost:8000
+
+**API Documentation:** http://localhost:8000/docs
 
 #### 2. Start Frontend (Terminal 2 - NEW TERMINAL)
 
@@ -144,11 +146,11 @@ pnpm install
 pnpm dev
 ````
 
-✅ **Frontend will run on http://localhost:3000**
+**Frontend will run on:** http://localhost:3000
 
 ---
 
-## 🔐 Demo Accounts
+## Demo Accounts
 
 After starting both servers, **visit http://localhost:3000** - you'll be redirected to login.
 
@@ -160,35 +162,45 @@ After starting both servers, **visit http://localhost:3000** - you'll be redirec
 | **Customer** | `customer@example.com` | `customer123` | View own messages only           |
 | **Admin**    | `admin@example.com`    | `admin123`    | Full admin access                |
 
-💡 **Tip**: Click any account on the login page to auto-fill credentials!
+**Tip:** Click any account on the login page to auto-fill credentials.
 
 ---
 
-## 📦 Loading Demo Data
+## Loading Demo Data
 
 1. **Login as Agent or Admin**
-2. Click **"Load Demo Data"** button in the header
+2. Click the **"Load Demo Data"** button in the header
 3. This creates:
-   - ✅ 3 demo user accounts (if not already exist)
-   - ✅ 15 realistic customer support messages
-   - ✅ AI analysis for each message (category, sentiment, summary, response)
+   - 3 demo user accounts (if not already exist)
+   - 15 realistic customer support messages
+   - AI analysis for each message (category, sentiment, summary, response)
 
-#### Dashboard View
+---
+
+## Features Overview
+
+### Inbox View
+
+1. Click on any message in the list to view full details
+2. Review AI analysis in the right panel:
+   - Category classification
+   - Sentiment analysis with confidence score
+   - Message summary
+   - Suggested response draft
+3. Use the suggested response as a starting point for your reply
+4. Update message status using the workflow button:
+   - New → In Progress → Resolved → Closed
+
+### Dashboard View
 
 - **Overview Cards**: Total messages, status breakdown
 - **Sentiment Distribution**: Pie chart showing sentiment trends
 - **Issue Categories**: Bar chart of issue types
 - **Key Insights**: Actionable recommendations based on data
 
-### Managing Messages
+---
 
-1. **Click on any message** in the list to view details
-2. **Review AI analysis** in the right panel
-3. **Use the suggested response** as a starting point
-4. **Update message status** using the action button:
-   - New → In Progress → Resolved → Closed
-
-## 🤖 AI Features Explained
+## AI Features Explained
 
 ### 1. Classification
 
@@ -221,7 +233,9 @@ Creates contextual, professional response drafts based on:
 - Customer sentiment
 - Message content
 
-## 🔌 API Endpoints
+---
+
+## API Endpoints
 
 ### Messages
 
@@ -242,7 +256,9 @@ Creates contextual, professional response drafts based on:
 
 **Full API documentation**: http://localhost:8000/docs
 
-## 🎨 Customization
+---
+
+## Customization
 
 ### Adding Custom AI Logic
 
@@ -267,7 +283,9 @@ To switch to PostgreSQL:
 2. Install psycopg2: `pip install psycopg2-binary`
 3. Restart backend
 
-## 🧪 Testing
+---
+
+## Testing
 
 ### Backend Testing
 
@@ -281,7 +299,9 @@ curl http://localhost:8000/api/messages
 - Use browser DevTools to inspect API calls
 - Check console for any errors
 
-## 🚨 Troubleshooting
+---
+
+## Troubleshooting
 
 ### Backend Issues
 
@@ -320,7 +340,9 @@ pnpm install
 - Ensure backend is running on port 8000
 - Check `NEXT_PUBLIC_API_URL` in `.env.local`
 
-## 📝 Future Enhancements
+---
+
+## Future Enhancements
 
 - [ ] Real-time notifications using WebSockets
 - [ ] Multi-agent assignment and routing
@@ -328,10 +350,23 @@ pnpm install
 - [ ] Knowledge base integration
 - [ ] Conversation threading
 - [ ] Advanced analytics with time-series data
-- [ ] User authentication and roles
+- [ ] User authentication and roles (COMPLETED)
 - [ ] Custom AI model fine-tuning
 
-## 🤝 Contributing
+---
+
+## Documentation
+
+For more detailed information, see:
+
+- **[Quick Start Guide](QUICKSTART.md)** - Fast reference for common tasks
+- **[Authentication Guide](AUTH_GUIDE.md)** - Detailed auth setup and usage
+- **[Deployment Guide](DEPLOYMENT.md)** - Production deployment instructions
+- **[API Documentation](http://localhost:8000/docs)** - Interactive API docs (when backend is running)
+
+---
+
+## Contributing
 
 This is a POC project. Feel free to:
 
@@ -340,22 +375,24 @@ This is a POC project. Feel free to:
 3. Submit pull requests
 4. Report issues
 
-## 📄 License
+---
+
+## License
 
 This project is provided as-is for demonstration purposes.
 
-## 👥 Team
-
-Built as a POC for AI Customer Support Intelligence Platform.
-
 ---
 
-## 📞 Support
+## Support
 
 For questions or issues:
 
-- Check the API docs: http://localhost:8000/docs
-- Review component code in `cs-frontend/components/`
-- Inspect AI logic in `cs-backend/ai_service.py`
+- Check the [Deployment Guide](DEPLOYMENT.md) for production setup
+- Review the [API Documentation](http://localhost:8000/docs) when backend is running
+- Inspect component code in `cs-frontend/components/`
+- Check AI logic in `cs-backend/ai_service.py`
+- Open an issue in the repository
 
-**Happy Customer Supporting! 🎉**
+---
+
+**Built for GDGOC - AI Customer Support Intelligence Platform**
